@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-
 import { loadToDoList } from "./actions";
 import toDoApp from "./reducers";
 import rootSaga from "./sagas";
@@ -21,7 +21,9 @@ store.dispatch(loadToDoList());
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
